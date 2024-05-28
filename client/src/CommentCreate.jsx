@@ -6,16 +6,12 @@ function CommentCreate({ postId }) {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const res = await axios.post(
-      `http://localhost:4001/posts/${postId}/comments`,
-      {
-        content,
-      }
-    );
-    setContent('');
+    
+    await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+      content,
+    });
+    setContent("");
   }
-
-
 
   return (
     <div>
@@ -24,6 +20,7 @@ function CommentCreate({ postId }) {
           <label>New Comment</label>
           <input
             type="text"
+            value={content}
             onChange={(e) => setContent(e.target.value)}
             className="form-control"
           />

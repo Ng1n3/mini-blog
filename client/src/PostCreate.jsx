@@ -10,7 +10,6 @@ export default function CreatePost() {
     await axios.post("http://localhost:4000/posts", {
       title,
     });
-
     setTitle('');
   };
 
